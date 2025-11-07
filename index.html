@@ -6,29 +6,42 @@
   <title>Contact Form</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
+<body>
   <div class="container">
     <h1>Contact Us</h1>
-    <form id="contactForm" action="https://formspree.io/f/xrgnkjqk" method="POST">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required />
-
-      <label for="surname">Surname</label>
-      <input type="text" id="surname" name="surname" required />
-
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required />
-
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
-
-      <button type="submit">Send Message</button>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="text" id="surname" placeholder="Surname" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="subject" placeholder="Subject" required>
+      <textarea id="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
     </form>
   </div>
 
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDv96JXm7v9KSxWkFMPpjGfLWc4o0cLRzQ",
+      authDomain: "contactform-52538.firebaseapp.com",
+      projectId: "contactform-52538",
+      storageBucket: "contactform-52538.firebasestorage.app",
+      messagingSenderId: "421566502567",
+      appId: "1:421566502567:web:60894d6999518d0fdd6d82"
+    };
+
+    // Initialize Firebase and Firestore
+    const app = initializeApp(firebaseConfig);
+    window.db = getFirestore(app);
+  </script>
+
+  <!-- Load your custom script AFTER Firebase -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
